@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Estratégico do Negócio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:linear-gradient(135deg,#0f172a,#111827,#1e293b);
+min-height:100vh;
+padding:40px 20px;
+color:#fff;
+}
+.container{
+max-width:900px;
+margin:auto;
+background:rgba(17,24,39,.85);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:40px;
+box-shadow:0 30px 80px rgba(0,0,0,.45);
+}
+.badge{
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+background:rgba(59,130,246,.15);
+color:#93c5fd;
+font-size:.85rem;
+margin-bottom:16px;
+}
+h1{
+font-size:clamp(2rem,5vw,3rem);
+margin-bottom:12px;
+}
+.subtitle{
+color:#cbd5e1;
+line-height:1.6;
+margin-bottom:30px;
+}
+.progress-wrap{
+margin-bottom:30px;
+}
+.progress{
+height:10px;
+background:#1f2937;
+border-radius:999px;
+overflow:hidden;
+}
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#3b82f6,#06b6d4);
+transition:.3s;
+}
+.question{
+margin-bottom:28px;
+padding:22px;
+background:rgba(255,255,255,.03);
+border-radius:18px;
+border:1px solid rgba(255,255,255,.06);
+}
+label{
+display:block;
+font-weight:700;
+margin-bottom:10px;
+}
+textarea,input,select{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #334155;
+background:#0f172a;
+color:#fff;
+font-family:inherit;
+}
+textarea{min-height:110px;resize:vertical}
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#2563eb,#06b6d4);
+font-size:1rem;
+font-weight:800;
+color:white;
+cursor:pointer;
+transition:.2s;
+}
+button:hover{transform:translateY(-2px)}
+.footer{
+margin-top:20px;
+font-size:.9rem;
+color:#94a3b8;
+text-align:center;
+}
+@media(max-width:768px){
+.grid{grid-template-columns:1fr}
+.container{padding:24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="badge">Discovery de Produto • 5 minutos</div>
+
+<h1>Diagnóstico Estratégico do Seu Negócio</h1>
+
+<p class="subtitle">
+Este formulário foi criado para identificar gargalos, desperdícios de tempo e oportunidades de automação. As respostas servirão de base para propor uma solução personalizada para o seu negócio.
+</p>
+
+<div class="progress-wrap">
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+</div>
+
+<form
+id="form"
+action="https://oswaldooliveira.app.n8n.cloud/webhook/briefing-produto"
+method="POST">
+
+<div class="grid">
+<div class="question">
+<label>Nome</label>
+<input type="text" required>
+</div>
+
+<div class="question">
+<label>Empresa / Negócio</label>
+<input type="text" required>
+</div>
+</div>
+
+<div class="question">
+<label>1. O que sua empresa vende e quem é seu cliente principal?</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>2. Qual é o maior problema que impede seu negócio de crescer hoje?</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>3. Conte um exemplo recente em que esse problema aconteceu.</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>4. O que você faz atualmente para lidar com esse problema?</label>
+<textarea required></textarea>
+</div>
+
+<div class="grid">
+<div class="question">
+<label>5. Quanto tempo por semana esse problema consome?</label>
+<select required>
+<option value="">Selecione</option>
+<option>Menos de 1 hora</option>
+<option>1 a 5 horas</option>
+<option>6 a 10 horas</option>
+<option>Mais de 10 horas</option>
+</select>
+</div>
+
+<div class="question">
+<label>6. Qual área é mais impactada?</label>
+<select required>
+<option value="">Selecione</option>
+<option>Vendas</option>
+<option>Atendimento</option>
+<option>Financeiro</option>
+<option>Operação</option>
+<option>Produtividade</option>
+</select>
+</div>
+</div>
+
+<div class="question">
+<label>7. Quais tarefas ainda são feitas manualmente?</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>8. Quais ferramentas você utiliza hoje? (WhatsApp, Excel, ERP, CRM, Instagram etc.)</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>9. Se esse problema fosse resolvido, qual resultado você espera alcançar?</label>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<label>10. Você teria interesse em conversar sobre uma solução para esse desafio?</label>
+<select required>
+<option value="">Selecione</option>
+<option>Sim</option>
+<option>Talvez</option>
+<option>Não</option>
+</select>
+</div>
+
+<button type="submit">Enviar Diagnóstico</button>
+
+</form>
+
+<div class="footer">
+Versão pronta para integração com n8n, Google Sheets, Formspree ou Google Apps Script.
+</div>
+
+</div>
+
+<script>
+const fields=document.querySelectorAll("input,textarea,select");
+const bar=document.getElementById("progressBar");
+
+function updateProgress(){
+let filled=0;
+fields.forEach(f=>{
+if(f.value.trim()!=="") filled++;
+});
+bar.style.width=((filled/fields.length)*100)+"%";
+}
+
+fields.forEach(f=>f.addEventListener("input",updateProgress));
+updateProgress();
+
+
+</script>
+
+</body>
+</html>
